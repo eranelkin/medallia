@@ -20,11 +20,14 @@ export const MailsProvider = ({ children }) => {
   };
 
   const setReadMessageById = (id) => {
-    const mail = mails.find((mail) => mail.id === id);
+    const mail = filteredMails.find((mail) => mail.id === id);
     mail.read = true;
 
-    const updatedMails = [mail, ...mails.filter((mail) => mail.id !== id)];
-    setMails(updatedMails);
+    const updatedMails = [
+      mail,
+      ...filteredMails.filter((mail) => mail.id !== id),
+    ];
+    // setMails(updatedMails);
     setFilteredMails(updatedMails);
   };
 
@@ -55,17 +58,21 @@ export const MailsProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    if (mails) {
-      const unreadMails = mails.filter((mail) => !mail.read);
-      const readMails = mails.filter((mail) => mail.read);
+    if (filteredMails) {
+      const unreadMails = filteredMails.filter((mail) => !mail.read);
+      const readMails = filteredMails.filter((mail) => mail.read);
 
       setUnread(unreadMails);
       setRead(readMails);
     }
-  }, [mails]);
+  }, [filteredMails]);
 
   const toggleShowMessage = () => {
     setShowMessage((show) => !show);
+  };
+
+  const resetMails = () => {
+    setFilteredMails(mails);
   };
 
   return (
@@ -79,6 +86,7 @@ export const MailsProvider = ({ children }) => {
         showMessage,
         setReadMessageById,
         filterMailsBySubject,
+        resetMails,
       }}
     >
       {children}

@@ -13,7 +13,8 @@ import "./messagePage.scss";
 const { message: messageTrans } = translations;
 
 const MessagePage = ({ selectedMessageId }) => {
-  const { filteredMails, toggleShowMessage } = useMails();
+  console.log("XXX: ", selectedMessageId);
+  const { filteredMails, toggleShowMessage, resetMails } = useMails();
   const navigate = useNavigate();
   const selectedMail = filteredMails.find(
     (mail) => mail.id === selectedMessageId
@@ -21,6 +22,7 @@ const MessagePage = ({ selectedMessageId }) => {
 
   const handlerViewOnClick = (key) => (ev) => {
     if (key === "home") {
+      resetMails();
       navigate("/");
     }
     toggleShowMessage();

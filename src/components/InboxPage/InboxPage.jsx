@@ -24,15 +24,13 @@ const InboxPage = () => {
     showMessage,
     setReadMessageById,
     filterMailsBySubject,
+    resetMails,
   } = useMails();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (filteredMails) filterMailsBySubject(search);
-  }, [search, filterMailsBySubject, filteredMails]);
-
   const handlerViewOnClick = (key) => (ev) => {
     if (key === "home") {
+      resetMails();
       navigate("/");
     }
     if (key === "search") {
@@ -51,6 +49,7 @@ const InboxPage = () => {
 
   const handlerSearchOnChange = (ev) => {
     setSearch(ev.target.value);
+    filterMailsBySubject(ev.target.value);
   };
   const filteredUnread =
     (filteredMails && filteredMails.filter((mail) => !mail.read)) || [];
