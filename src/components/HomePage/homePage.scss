@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Neucha&display=swap");
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  justify-content: center;
+  align-items: center;
+  background-color: #bfbebb;
+  margin: 50px auto;
+  width: 800px;
+  border-radius: 40px;
+  font-family: "Neucha", cursive;
+}
+.inbox-actions {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.action {
+  cursor: pointer;
+}

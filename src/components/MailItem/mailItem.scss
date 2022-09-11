@@ -1,0 +1,19 @@
+.item {
+}
+.mail {
+  width: 600px;
+  margin-bottom: 4px;
+}
+.from-label {
+  width: 85px;
+}
+.subject {
+  width: 350px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  &.content {
+    width: 500px;
+    margin-top: 15px;
+  }
+}

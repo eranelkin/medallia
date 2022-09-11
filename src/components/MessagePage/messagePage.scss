@@ -1,0 +1,31 @@
+.message {
+  height: 600px;
+  width: 600px;
+  display: flex;
+}
+
+.message-content {
+  border: 1px solid black;
+  height: 300px;
+  padding: 40px;
+}
+.message-label {
+  width: 100px;
+  font-weight: bold;
+}
+.card-content {
+  padding: 40px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.message-actions {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.action {
+  cursor: pointer;
+}
