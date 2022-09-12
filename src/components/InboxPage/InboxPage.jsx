@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { useMails } from "../MailsContext";
 import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
-import { translations } from "../../translations/translations";
-import { StyledTypography } from "../StyledTypography/StyledTypography";
 import { useNavigate } from "react-router-dom";
 import MailItem from "../MailItem/MailItem";
 import MessagePage from "../MessagePage/MessagePage";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { translations } from "../../translations/translations";
+
 import "./inboxPage.scss";
 
 const { inbox: inboxTrans } = translations;
@@ -57,9 +57,7 @@ const InboxPage = () => {
   return (
     <div className="page">
       {isLoading && !filteredMails ? (
-        <div className="loading">
-          <CircularProgress disableShrink />
-        </div>
+        <CircularProgress disableShrink />
       ) : !showMessage ? (
         <div className="container">
           <div className="inbox-actions">
@@ -68,6 +66,7 @@ const InboxPage = () => {
                 onClick={handlerViewOnClick("search")}
                 fontSize="large"
                 className="action"
+                style={{ color: "yellow" }}
               />
               {showInput && (
                 <input
@@ -78,7 +77,7 @@ const InboxPage = () => {
                 />
               )}
             </div>
-            <div style={{ paddingLeft: 20, width: 225 }}>
+            <div className="header">
               <span className="title">{`${inboxTrans.title}`} </span>
               <span>
                 {`(${filteredUnread.length} / ${filteredMails.length})`}
@@ -88,6 +87,7 @@ const InboxPage = () => {
               onClick={handlerViewOnClick("home")}
               fontSize="large"
               className="action"
+              style={{ color: "yellow" }}
             />
           </div>
           {filteredMails && filteredMails.length > 0 && (
@@ -104,15 +104,13 @@ const InboxPage = () => {
           {filteredMails && filteredMails.length === 0 && (
             <div className="empty-state">
               <Typography variant="body1" component="div" fontWeight="bolder">
-                No mails to display
+                {inboxTrans.emptyState}
               </Typography>
             </div>
           )}
         </div>
       ) : (
-        <div className="container">
-          <MessagePage selectedMessageId={selectedMessageId} />
-        </div>
+        <MessagePage selectedMessageId={selectedMessageId} />
       )}
     </div>
   );

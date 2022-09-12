@@ -1,4 +1,5 @@
 import React, { memo } from "react";
+import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -13,7 +14,6 @@ import "./messagePage.scss";
 const { message: messageTrans } = translations;
 
 const MessagePage = ({ selectedMessageId }) => {
-  console.log("XXX: ", selectedMessageId);
   const { filteredMails, toggleShowMessage, resetMails } = useMails();
   const navigate = useNavigate();
   const selectedMail = filteredMails.find(
@@ -35,11 +35,13 @@ const MessagePage = ({ selectedMessageId }) => {
           onClick={handlerViewOnClick("back")}
           fontSize="large"
           className="action"
+          style={{ color: "yellow" }}
         />
         <HomeIcon
           onClick={handlerViewOnClick("home")}
           fontSize="large"
           className="action"
+          style={{ color: "yellow" }}
         />
       </div>
       <Card className="message">
@@ -76,6 +78,10 @@ const MessagePage = ({ selectedMessageId }) => {
       </Card>
     </div>
   );
+};
+
+MessagePage.propTypes = {
+  selectedMessageId: PropTypes.number.isRequired,
 };
 
 export default memo(MessagePage);

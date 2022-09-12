@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { translations } from "../../translations/translations";
 import { StyledTypography } from "../StyledTypography/StyledTypography";
-import Typography from "@mui/material/Typography";
 import Tooltip from "@mui/material/Tooltip";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
-import { useMails } from "../MailsContext";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import MarkunreadIcon from "@mui/icons-material/Markunread";
 
@@ -70,6 +69,11 @@ const MailItem = ({ mail, handlerMessageOnClick }) => {
       </CardActionArea>
     </Card>
   );
+};
+
+MailItem.propTypes = {
+  mail: PropTypes.shape({}).isRequired,
+  handlerMessageOnClick: PropTypes.func.isRequired,
 };
 
 export default MailItem;

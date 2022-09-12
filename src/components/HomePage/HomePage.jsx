@@ -23,9 +23,7 @@ const HomePage = () => {
   return (
     <div className="page">
       {isLoading && !filteredMails ? (
-        <div className="loading">
-          <CircularProgress disableShrink />
-        </div>
+        <CircularProgress disableShrink />
       ) : (
         <>
           <Typography variant="h3" component="div" style={{ marginBottom: 40 }}>

@@ -3,7 +3,7 @@
 .page {
   display: flex;
   flex-direction: column;
-  height: 800px;
+  height: 777px;
   justify-content: center;
   align-items: center;
   background-color: #bfbebb;
@@ -39,4 +39,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+input {
+  width: 130px;
+}
+.header {
+  padding-left: 20px;
+  width: 225px;
 }

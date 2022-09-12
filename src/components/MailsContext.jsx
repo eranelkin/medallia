@@ -10,15 +10,6 @@ export const MailsProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
 
-  const enrichMails = (mails) => {
-    return mails.map((mail) => {
-      return {
-        ...mail,
-        avatarSrc: `https://avatars.dicebear.com/api/avataaars/${mail.id}.svg`,
-      };
-    });
-  };
-
   const setReadMessageById = (id) => {
     const mail = filteredMails.find((mail) => mail.id === id);
     mail.read = true;
@@ -27,7 +18,6 @@ export const MailsProvider = ({ children }) => {
       mail,
       ...filteredMails.filter((mail) => mail.id !== id),
     ];
-    // setMails(updatedMails);
     setFilteredMails(updatedMails);
   };
 
@@ -43,10 +33,9 @@ export const MailsProvider = ({ children }) => {
           "https://run.mocky.io/v3/8856838a-1ba9-424f-9768-6ee4209aed67"
         );
         const response = await data.json();
-        const enrichedMails = enrichMails(response);
 
-        setMails(enrichedMails);
-        setFilteredMails(enrichedMails);
+        setMails(response);
+        setFilteredMails(response);
         setIsLoading(false);
       } catch (err) {
         console.log("#ERR: ", err.message);

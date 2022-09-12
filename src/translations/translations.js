@@ -9,6 +9,7 @@ export const translations = {
   },
   inbox: {
     title: "Messages",
+    emptyState: "No mails to display",
   },
   mailItem: {
     from: "From: ",

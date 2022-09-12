@@ -9,23 +9,21 @@
 
 ## General info
 
-This project is DealTail Home Assignment
+This project is Medallia Home Assignment
 
 ## in-project
 
-- Files structure - not all the components have much logic on its own but this is a basic and right files structure.
 - Hooks
-  - `useLocalStorage` - local storage handler.
-  - `useTableSort` - table sort handler.
+  - `useMails` - mails hook.
 - Context
-  - `EmployeesContext` - employees context data handler.
+  - `MailContext` - mail context data handler.
 - Translations
   - `translations` json file for more language support
 
 ## not-in-project
 
 - tests, tests and more tests
-- typescript - better way to do it (time limitations)
+- typescript - better way to do it (time consuming)
 - more react optimizations.
 
 ## Technologies
@@ -38,9 +36,9 @@ This project is DealTail Home Assignment
 To run this project, install it locally using npm/yarn:
 
 ```
-$ cd [DealTail]
-$ yarn
+$ cd [Medallia]
+$ yarn OR npm i
 $ npm start
 ```
 
-https://github.com/eranelkin/DealTail.git
+https://github.com/eranelkin/medallia.git
